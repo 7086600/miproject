@@ -27,5 +27,9 @@ zippedAges = zip(names, ages)
 namesToAges = {key: value for key, value in zippedAges} # or simple: namesToAges = dict(zippedAges)
 print(namesToAges)
 
+# extract records
+
+marina_age = namesToAges.get("Marina", None)
+print("Marina's age is {}".format(marina_age))
 
 
