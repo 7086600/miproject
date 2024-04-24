@@ -49,4 +49,11 @@ medical_records.update({"Vinay": {"Age": 24, "Sex": "Male", "BMI": 26.9, "Childr
                         "Valentina": {"Age": 52, "Sex": "Female", "BMI": 18.7, "Children": 1, "Smoker": "Non-smoker", "Insurance_cost": 6420.0}})
 
 # print(medical_records)
+
+# read db record
 print("Connie's insurance cost is {} dollars.".format(medical_records["Connie"]["Insurance_cost"]))
+
+#remove db record
+
+medical_records.pop("Vinay")
+# print(medical_records)
