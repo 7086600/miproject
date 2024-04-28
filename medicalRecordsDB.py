@@ -58,13 +58,16 @@ print("Connie's insurance cost is {} dollars.".format(medical_records["Connie"][
 medical_records.pop("Vinay")
 # print(medical_records)
 
-# read all db recods and print out it
+# function for read all db recods and print out it
 
-for key, value in medical_records.items():
-    print("{Name} is a {Age} year old, {Sex}, {Smoker} with a BMI of {BMI} and insurance cost of {Insurance_cost}".format(
-        Name = key, 
-        Age = value["Age"],
-        Sex = value["Sex"],
-        Smoker = value["Smoker"],
-        BMI = value["BMI"],
-        Insurance_cost = value["Insurance_cost"]))
+def printMedicalRecords():
+    for key, value in medical_records.items():
+        print("{Name} is a {Age} year old, {Sex}, {Smoker} with a BMI of {BMI} and insurance cost of {Insurance_cost}".format(
+            Name = key, 
+            Age = value["Age"],
+            Sex = value["Sex"],
+            Smoker = value["Smoker"],
+            BMI = value["BMI"],
+            Insurance_cost = value["Insurance_cost"]))
+
+printMedicalRecords()
