@@ -30,44 +30,60 @@ namesToAges = {key: value for key, value in zippedAges} # or simple: namesToAges
 
 # extract records
 
-marina_age = namesToAges.get("Marina", None)
-print("Marina's age is {}".format(marina_age))
+marinaAge = namesToAges.get("Marina", None)
+print("Marina's age is {}".format(marinaAge))
 
 # create medical records db
 
-medical_records = {}
-medical_records["Marina"] = {"Age": 27, 
+medicalRecords = {}
+medicalRecords["Marina"] = {"Age": 27, 
                              "Sex": "Female", 
                              "BMI": 31.1, 
                              "Children": 2, 
                              "Smoker": "Non-smoker", 
-                             "Insurance_cost": 6607.0}
+                             "insuranceCost": 6607.0}
 
-medical_records.update({"Vinay": {"Age": 24, "Sex": "Male", "BMI": 26.9, "Children": 0, "Smoker": "Non-smoker", "Insurance_cost": 3225.0},
-                        "Connie": {"Age": 43, "Sex": "Female", "BMI": 25.3, "Children": 3, "Smoker": "Non-smoker", "Insurance_cost": 8886.0},
-                        "Isaac": {"Age": 35, "Sex": "Male", "BMI": 20.6, "Children": 4, "Smoker": "Smoker", "Insurance_cost": 16444.0},
-                        "Valentina": {"Age": 52, "Sex": "Female", "BMI": 18.7, "Children": 1, "Smoker": "Non-smoker", "Insurance_cost": 6420.0}})
+medicalRecords.update({"Vinay": {"Age": 24, "Sex": "Male", "BMI": 26.9, "Children": 0, "Smoker": "Non-smoker", "insuranceCost": 3225.0},
+                        "Connie": {"Age": 43, "Sex": "Female", "BMI": 25.3, "Children": 3, "Smoker": "Non-smoker", "insuranceCost": 8886.0},
+                        "Isaac": {"Age": 35, "Sex": "Male", "BMI": 20.6, "Children": 4, "Smoker": "Smoker", "insuranceCost": 16444.0},
+                        "Valentina": {"Age": 52, "Sex": "Female", "BMI": 18.7, "Children": 1, "Smoker": "Non-smoker", "insuranceCost": 6420.0}})
 
-# print(medical_records)
+# print(medicalRecords)
 
 # read db record
-print("Connie's insurance cost is {} dollars.".format(medical_records["Connie"]["Insurance_cost"]))
+print("Connie's insurance cost is {} dollars.".format(medicalRecords["Connie"]["insuranceCost"]))
 
 #remove db record
 
-medical_records.pop("Vinay")
-# print(medical_records)
+medicalRecords.pop("Vinay")
+# print(medicalRecords)
 
 # function for read all db recods and print out it
 
 def printMedicalRecords():
-    for key, value in medical_records.items():
-        print("{Name} is a {Age} year old, {Sex}, {Smoker} with a BMI of {BMI} and insurance cost of {Insurance_cost}".format(
+    for key, value in medicalRecords.items():
+        print("{Name} is a {Age} year old, {Sex}, {Smoker} with a BMI of {BMI} and insurance cost of {insuranceCost}".format(
             Name = key, 
             Age = value["Age"],
             Sex = value["Sex"],
             Smoker = value["Smoker"],
             BMI = value["BMI"],
-            Insurance_cost = value["Insurance_cost"]))
+            insuranceCost = value["insuranceCost"]))
+
+# printMedicalRecords()
+
+# function for update medical records db
+
+def updateMedicalRecords(name, age, sex, bmi, children, smoker, insCost):
+    medicalRecords.update({name : {
+                                    "Age": age, 
+                                    "Sex": sex,
+                                    "BMI": bmi,
+                                    "Children": children,
+                                    "Smoker": smoker,
+                                    "insuranceCost": insCost
+                                    }})
+
+updateMedicalRecords("ZoRRo", 33, "Male", 25.7, 0, "NO!", 15777.78)
 
 printMedicalRecords()
